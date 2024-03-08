@@ -1,13 +1,14 @@
-import styled from "styled-components";
 import useForm from "../../hooks/useForm";
 import { useState } from "react";
 import { useSignIn } from "../../services/auth";
 import { Button, Container, Form, Input } from "./style";
+import useQuickIn from "../../hooks/useQuickIn";
 
 function SignInPage() {
   const { form, handleForm } = useForm({ username: "", password: "" })
   const [isLoading, setIsLoading] = useState(false);
   const signin = useSignIn();
+  useQuickIn();
 
   const handleSignIn = (e) => {
     e.preventDefault();

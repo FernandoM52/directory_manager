@@ -8,12 +8,26 @@ export function useSignIn() {
   return (body) => {
     axios.post(`${BASE_URL}/token`, body)
       .then(res => {
-        console.log(res.data); //LEMBRETE: apagar console
-
         localStorage.setItem("accessToken", res.data.access);
         localStorage.setItem("refreshToken", res.data.refresh);
         navigate("/home");
       })
+      .catch((err) => alert(err.response.data));
+  }
+}
+
+export function useVerifyToken() {
+  return (body) => {
+    axios.post(`${BASE_URL}/token/verify`, body)
+      .then(res => {})
+      .catch((err) => {});
+  }
+}
+
+export function useRefreshToken() {
+  return (body) => {
+    axios.post(`${BASE_URL}/token/refresh`, body)
+      .then(res => localStorage.setItem("accessToken", res.data.access))
       .catch((err) => alert(err.response.data));
   }
 }
