@@ -21,5 +21,4 @@ module.exports = {
     "lines-between-class-members": ["error", "always"],
     "import/no-named-as-default-member": "off"
   },
-  eslintConfigPrettier
 }
