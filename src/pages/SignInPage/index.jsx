@@ -5,7 +5,7 @@ import { Button, Container, Form, Input } from "./style";
 import useQuickIn from "../../hooks/useQuickIn";
 
 function SignInPage() {
-  const { form, handleForm } = useForm({ username: "", password: "" })
+  const { form, handleForm } = useForm({ username: "", password: "" });
   const [isLoading, setIsLoading] = useState(false);
   const signin = useSignIn();
   useQuickIn();
@@ -14,7 +14,7 @@ function SignInPage() {
     e.preventDefault();
     setIsLoading(true);
     signin(form);
-  }
+  };
 
   return (
     <Container>
@@ -28,8 +28,7 @@ function SignInPage() {
           onChange={handleForm}
           disabled={isLoading}
           required
-        >
-        </Input>
+        ></Input>
         <Input
           name="password"
           type="password"
@@ -38,14 +37,9 @@ function SignInPage() {
           onChange={handleForm}
           disabled={isLoading}
           required
-        >
-        </Input>
+        ></Input>
         <Button type="submit" disabled={isLoading}>
-          {
-            isLoading
-            ? "Carregando..."
-              : "Entrar"
-          }
+          {isLoading ? "Carregando..." : "Entrar"}
         </Button>
       </Form>
     </Container>

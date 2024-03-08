@@ -5,7 +5,7 @@ function HomePage() {
   //TODO: Fazer hook de login automatico se tiver token no local storage
   return (
     <>
-      <Header/>
+      <Header />
       <Content>
         {/*Aqui eh onde os diretorios serao renderizados para o usuario*/}
       </Content>

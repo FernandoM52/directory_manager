@@ -11,7 +11,7 @@ export const Content = styled.header`
   height: 12%;
   padding: 0 2px 5px 2px;
 
-  h1{
+  h1 {
     padding-left: 4%;
     color: #fff;
     font-size: 24px;
