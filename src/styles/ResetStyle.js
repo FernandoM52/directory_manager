@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 const ResetStyle = createGlobalStyle`
     html, body, div, span, applet, object, iframe,
@@ -37,13 +37,13 @@ const ResetStyle = createGlobalStyle`
 	}
 	blockquote:before, blockquote:after,
 	q:before, q:after {
-		content: '';
+		content: "";
 		content: none;
 	}
 	table {
 		border-collapse: collapse;
 		border-spacing: 0;
 	}
-`
+`;
 
 export default ResetStyle;
