@@ -32,7 +32,7 @@ export function useVerifyToken() {
 
 export function useRefreshToken() {
   return (token) => {
-    const body = { "refresh": token };
+    const body = { refresh: token };
     axios
       .post(`${BASE_URL}/token/refresh`, body)
       .then((res) => localStorage.setItem("accessToken", res.data.access))

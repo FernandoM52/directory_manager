@@ -7,7 +7,7 @@ import CreateDirectoryForm from "../../components/CreateDirectoryForm";
 
 function HomePage() {
   const navigate = useNavigate();
-  const {directories, getDirectories } = useGetDirectories();
+  const { directories, getDirectories } = useGetDirectories();
   useQuickOut();
 
   console.log(directories)
@@ -17,7 +17,9 @@ function HomePage() {
       <CreateDirectoryForm />
       <Content>
         {!directories && <span>Carregando...</span>}
-        {directories && directories.length === 0 && <span>Está um pouco vazio por aqui...</span>}
+        {directories && directories.length === 0 && (
+          <span>Está um pouco vazio por aqui...</span>
+        )}
         {directories && directories.length > 0 && (
           <Directories>
             {/*directories.map()*/}
@@ -43,7 +45,7 @@ const Content = styled.div`
 `;
 
 const Directories = styled.ul`
-background-color: blue;
+  background-color: blue;
   display: flex;
   height: 500px;
   width: 100%;
