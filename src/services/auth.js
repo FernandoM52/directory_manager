@@ -13,24 +13,29 @@ export function useSignIn() {
         localStorage.setItem("refreshToken", res.data.refresh);
         navigate("/home");
       })
-      .catch((err) => alert(err.response.data));
+      .catch((err) => {
+        alert("nome ou senha errado");
+        location.reload();
+      });
   };
 }
 
 export function useVerifyToken() {
-  return (body) => {
+  return (token) => {
+    const body = { token };
     axios
       .post(`${BASE_URL}/token/verify`, body)
       .then((res) => {})
-      .catch((err) => alert(err.response.data));
+      .catch((err) => console.log(err));
   };
 }
 
 export function useRefreshToken() {
-  return (body) => {
+  return (token) => {
+    const body = { "refresh": token };
     axios
       .post(`${BASE_URL}/token/refresh`, body)
       .then((res) => localStorage.setItem("accessToken", res.data.access))
-      .catch((err) => alert(err.response.data));
+      .catch((err) => console.log(err));
   };
 }
