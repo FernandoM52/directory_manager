@@ -28,7 +28,7 @@ function CreateDirectoryForm() {
         ></DirectoryInput>
         <DirectoryInput
           name="parent"
-          type="text"
+          type="number"
           placeholder="id da pasta pai"
           value={form.parent}
           onChange={handleForm}

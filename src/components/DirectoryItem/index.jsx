@@ -3,16 +3,16 @@ import { Directory } from "./styled";
 
 function DirectoryItem({ directory }) {
   const navigate = useNavigate();
-
+  //console.log(directory)
   return (
-    <Directory onClick={() => navigate(`/directory/${directory.id}`)}>
+    <Directory onClick={() => navigate(`/directory/${directory?.id}`)}>
       <div>
-        <h2>Nome: <span>{directory.name}</span></h2>
-        <h3>Id: <span>{directory.id}</span></h3>
+        <h2>Nome: <span>{directory?.name}</span></h2>
+        <p>Id: <span>{directory?.id}</span></p>
       </div>
-      {directory.parent === null ? 
-        <h3>Id da pasta pai: nenhuma</h3> :
-        <h3>Id da pasta pai: <span>{directory.parent}</span></h3>
+      {directory?.parent === null ? 
+        <p>Id da pasta pai: <span>nenhuma</span></p> :
+        <p>Id da pasta pai: <span>{directory?.parent}</span></p>
       }
     </Directory>
   );

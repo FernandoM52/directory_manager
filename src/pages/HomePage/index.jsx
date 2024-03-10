@@ -8,9 +8,9 @@ import { Content, Directories } from "./style";
 
 function HomePage() {
   const navigate = useNavigate();
-  const { directories, getDirectories } = useGetDirectories();
+  const { directories } = useGetDirectories();
   useQuickOut();
-
+  
   return (
     <>
       <Header />

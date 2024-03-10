@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useRefreshToken, useVerifyToken } from "./auth";
 
-const BASE_URL = import.meta.env.VITE_BASE_URL;
+export const BASE_URL = import.meta.env.VITE_BASE_URL;
 export function useGetDirectories() {
   const [directories, setDirectories] = useState(undefined);
   const token = useVerifyAccessToken();
@@ -38,7 +38,21 @@ export function useCreateDirectory() {
   };
 }
 
-const useVerifyAccessToken = () => {
+export function useGetDirectory() {
+  const token = useVerifyAccessToken();
+
+  const config = { headers: { Authorization: `Bearer ${token}` } };
+  const getDirectory = (id) => {
+    axios
+      .get(`${BASE_URL}/directory/${id}`, config)
+      .then((res) => {})
+      .catch((err) => alert("Diretório não encontrado."));
+  };
+
+  return { getDirectory };
+}
+
+export const useVerifyAccessToken = () => {
   const verifyToken = useVerifyToken();
   const refresh = useRefreshToken();
   const accessToken = localStorage.getItem("accessToken");

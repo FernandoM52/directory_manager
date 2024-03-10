@@ -20,6 +20,7 @@ export const Form = styled.form`
 `;
 
 export const DirectoryInput = styled.input`
+  width: 220px;
   padding: 10px;
   border: 1px solid #d5d5d5;
   border-radius: 5px;
@@ -45,6 +46,8 @@ export const StyledButton = styled.button`
   padding: 1.125rem 1.25rem 1.125rem 1rem;
   pointer-events: ${(props) => (props.disabled ? "none" : "all")};
   opacity: ${(props) => (props.disabled ? 0.7 : 1)};
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
   cursor: pointer;
   &:hover {
     background-color: #e0e4ed;

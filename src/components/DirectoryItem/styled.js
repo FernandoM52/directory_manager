@@ -17,11 +17,6 @@ export const Directory = styled.li`
   &:hover {
     background-color: #dfe3e7;
   }
-
-  span {
-    color: #303134;
-    font-weight: 400;
-  }
   
   div {
     display: flex;
@@ -30,9 +25,13 @@ export const Directory = styled.li`
     width: 100%;
   }
 
-  h2, h3 {
+  h2, p {
       overflow: hidden;
       text-overflow: ellipsis;
       font-weight: 600;
+      span {
+        color: #303134;
+        font-weight: 400;
+      }
     }
 `;
