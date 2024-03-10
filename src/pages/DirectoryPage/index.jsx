@@ -2,18 +2,26 @@ import Header from "../../components/Header";
 import CreateDirectoryForm from "../../components/CreateDirectoryForm";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useGetDirectories, useGetDirectory, useVerifyAccessToken } from "../../services/api";
+import { useEditDirectory, useGetDirectories, useGetDirectory } from "../../services/api";
 import { DirectoryInput } from "../../components/CreateDirectoryForm/style";
 import DirectoryItem from "../../components/DirectoryItem";
 import useForm from "../../hooks/useForm";
-import { Content, CurrentDirectory, DirectoryEditForm, EditButton, Subdirectories, SubdirectoriesContainer } from "./style";
+import {
+  Content,
+  CurrentDirectory,
+  DirectoryEditForm,
+  EditButton,
+  Subdirectories,
+  SubdirectoriesContainer
+} from "./style";
 
 function DirectoryPage() {
   const { id } = useParams();
   const { directories } = useGetDirectories();
-  const {directory, getDirectory } = useGetDirectory();
+  const { directory, getDirectory } = useGetDirectory();
   const { form, handleForm } = useForm({ name: "", parent: "" });
   const [isLoading, setIsLoading] = useState(false);
+  const editDirectory = useEditDirectory();
 
   useEffect(() => {
     if (id) {
@@ -28,6 +36,8 @@ function DirectoryPage() {
 
   const handleEditDirectory = (e) => {
     e.preventDefault();
+    setIsLoading(true);
+    editDirectory(id, form);
   };
 
   return (
