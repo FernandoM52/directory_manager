@@ -1,10 +1,10 @@
-import styled from "styled-components";
 import Header from "../../components/Header";
 import { useNavigate } from "react-router-dom";
 import useQuickOut from "../../hooks/useQuickOut";
 import { useGetDirectories } from "../../services/api";
 import CreateDirectoryForm from "../../components/CreateDirectoryForm";
 import DirectoryItem from "../../components/DirectoryItem";
+import { Content, Directories } from "./style";
 
 function HomePage() {
   const navigate = useNavigate();
@@ -31,25 +31,3 @@ function HomePage() {
 }
 
 export default HomePage;
-
-const Content = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: #202020;
-
-  height: 100vh;
-  span {
-    color: #fff;
-  }
-`;
-
-const Directories = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  width: 100%;
-  padding: 5%;
-`;
