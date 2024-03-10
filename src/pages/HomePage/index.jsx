@@ -4,13 +4,13 @@ import { useNavigate } from "react-router-dom";
 import useQuickOut from "../../hooks/useQuickOut";
 import { useGetDirectories } from "../../services/api";
 import CreateDirectoryForm from "../../components/CreateDirectoryForm";
+import DirectoryItem from "../../components/DirectoryItem";
 
 function HomePage() {
   const navigate = useNavigate();
   const { directories, getDirectories } = useGetDirectories();
   useQuickOut();
 
-  console.log(directories)
   return (
     <>
       <Header />
@@ -22,7 +22,7 @@ function HomePage() {
         )}
         {directories && directories.length > 0 && (
           <Directories>
-            {/*directories.map()*/}
+            {directories.map((d) => <DirectoryItem key={d.id} directory={d} />)}
           </Directories>
         )}
       </Content>
@@ -39,14 +39,17 @@ const Content = styled.div`
   justify-content: center;
   background-color: #202020;
 
+  height: 100vh;
   span {
     color: #fff;
   }
 `;
 
 const Directories = styled.ul`
-  background-color: blue;
   display: flex;
-  height: 500px;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
   width: 100%;
+  padding: 5%;
 `;

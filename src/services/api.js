@@ -27,10 +27,14 @@ export function useCreateDirectory() {
 
   const config = { headers: { Authorization: `Bearer ${token}` } };
   return (body) => {
+    body = { ...body, parent: parseInt(body.parent) };
     axios
       .post(`${BASE_URL}/directories`, body, config)
       .then((res) => location.reload())
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        alert("Erro ao criar pasta, confira os campos preenchidos. Nome da pasta é obrigatório e o id da pasta pai deve ser de uma criada por você.");
+        location.reload();
+      });
   };
 }
 
