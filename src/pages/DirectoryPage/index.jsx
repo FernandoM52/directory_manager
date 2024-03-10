@@ -1,10 +1,8 @@
-import styled from "styled-components";
 import Header from "../../components/Header";
-import axios from "axios";
 import CreateDirectoryForm from "../../components/CreateDirectoryForm";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { BASE_URL, useGetDirectories, useVerifyAccessToken } from "../../services/api";
+import { useGetDirectories, useGetDirectory, useVerifyAccessToken } from "../../services/api";
 import { DirectoryInput } from "../../components/CreateDirectoryForm/style";
 import DirectoryItem from "../../components/DirectoryItem";
 import useForm from "../../hooks/useForm";
@@ -13,19 +11,13 @@ import { Content, CurrentDirectory, DirectoryEditForm, EditButton, Subdirectorie
 function DirectoryPage() {
   const { id } = useParams();
   const { directories } = useGetDirectories();
-  const [directory, setDirectory] = useState();
+  const {directory, getDirectory } = useGetDirectory();
   const { form, handleForm } = useForm({ name: "", parent: "" });
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     if (id) {
-      const token = useVerifyAccessToken();
-      const config = { headers: { Authorization: `Bearer ${token}` } };
-
-      axios
-      .get(`${BASE_URL}/directory/${id}`, config)
-      .then((res) => setDirectory(res.data[0]))
-      .catch((err) => alert("Diretório não encontrado."));
+      getDirectory(id);
     }
   }, [id]);
 
@@ -35,7 +27,7 @@ function DirectoryPage() {
   const subdirectories = findSubdirectories();
 
   const handleEditDirectory = (e) => {
-    e.preventDefault()
+    e.preventDefault();
   };
 
   return (

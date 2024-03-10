@@ -39,17 +39,18 @@ export function useCreateDirectory() {
 }
 
 export function useGetDirectory() {
+  const [directory, setDirectory] = useState();
   const token = useVerifyAccessToken();
 
   const config = { headers: { Authorization: `Bearer ${token}` } };
   const getDirectory = (id) => {
     axios
       .get(`${BASE_URL}/directory/${id}`, config)
-      .then((res) => {})
+      .then((res) => setDirectory(res.data))
       .catch((err) => alert("Diretório não encontrado."));
   };
 
-  return { getDirectory };
+  return { directory, getDirectory };
 }
 
 export const useVerifyAccessToken = () => {
