@@ -1,6 +1,7 @@
 # Directory Manager
 
 Directory Manager é um sistema de gerenciamento de pastas no qual você terá pastas raizes (pai) e seus subdiretórios (filhos), podendo realizar um CRUD completo para gerenciar da forma que quiser.
+Link do deploy: https://directory-manager-h73n7s6xn-fernandom52.vercel.app/
 
 ## Sobre este projeto
 
