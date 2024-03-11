@@ -1,16 +1,13 @@
 import Header from "../../components/Header";
-import { useNavigate } from "react-router-dom";
 import useQuickOut from "../../hooks/useQuickOut";
 import { useGetDirectories } from "../../services/api";
+import { Content, Directories } from "./style";
 import CreateDirectoryForm from "../../components/CreateDirectoryForm";
 import DirectoryItem from "../../components/DirectoryItem";
-import { Content, Directories } from "./style";
 
 function HomePage() {
-  const navigate = useNavigate();
   const { directories } = useGetDirectories();
   useQuickOut();
-  
   return (
     <>
       <Header />
@@ -22,7 +19,9 @@ function HomePage() {
         )}
         {directories && directories.length > 0 && (
           <Directories>
-            {directories.map((d) => <DirectoryItem key={d.id} directory={d} />)}
+            {directories.map((d) => (
+              <DirectoryItem key={d.id} directory={d} />
+            ))}
           </Directories>
         )}
       </Content>

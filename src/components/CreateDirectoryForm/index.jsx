@@ -42,9 +42,7 @@ function CreateDirectoryForm() {
             viewBox="0 0 24 24"
             focusable="false"
           >
-            <path
-              d="M20 13h-7v7h-2v-7H4v-2h7V4h2v7h7v2z">
-            </path>
+            <path d="M20 13h-7v7h-2v-7H4v-2h7V4h2v7h7v2z"></path>
           </svg>
           <span>Novo</span>
         </StyledButton>

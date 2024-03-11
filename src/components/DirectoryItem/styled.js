@@ -18,15 +18,16 @@ export const Directory = styled.li`
     background-color: #dfe3e7;
   }
 
-  h2, p {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      font-weight: 600;
-      span {
-        color: #303134;
-        font-weight: 400;
-      }
+  h2,
+  p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 600;
+    span {
+      color: #303134;
+      font-weight: 400;
     }
+  }
 
   svg {
     width: 20px;
@@ -36,11 +37,11 @@ export const Directory = styled.li`
     top: 80%;
   }
 
-  @media (max-width: 500px){
+  @media (max-width: 500px) {
     width: 150px;
     height: 150px;
   }
-  @media (max-width: 350px){
+  @media (max-width: 350px) {
     width: 135px;
     height: 180px;
   }
@@ -51,7 +52,7 @@ export const Info = styled.div`
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-  >div {
+  > div {
     display: flex;
     flex-direction: column;
     gap: 10px;

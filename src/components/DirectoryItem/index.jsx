@@ -7,7 +7,9 @@ function DirectoryItem({ directory }) {
   const deleteDirectory = useDeleteDirectory();
 
   const handleDeleteDirectory = () => {
-    if (!window.confirm("Você tem certeza que deseja deletar este diretório?")) {
+    if (
+      !window.confirm("Você tem certeza que deseja deletar este diretório?")
+    ) {
       return;
     }
 
@@ -19,15 +21,25 @@ function DirectoryItem({ directory }) {
     <Directory>
       <Info onClick={() => navigate(`/directory/${directory?.id}`)}>
         <div>
-          <h2>Nome: <span>{directory?.name}</span></h2>
-          <p>Id: <span>{directory?.id}</span></p>
+          <h2>
+            Nome: <span>{directory?.name}</span>
+          </h2>
+          <p>
+            Id: <span>{directory?.id}</span>
+          </p>
         </div>
-        {directory?.parent === null ?
-          <p>Id da pasta pai: <span>nenhuma</span></p> :
-          <p>Id da pasta pai: <span>{directory?.parent}</span></p>
-        }
+        {directory?.parent === null ? (
+          <p>
+            Id da pasta pai: <span>nenhuma</span>
+          </p>
+        ) : (
+          <p>
+            Id da pasta pai: <span>{directory?.parent}</span>
+          </p>
+        )}
       </Info>
-      <svg onClick={handleDeleteDirectory}
+      <svg
+        onClick={handleDeleteDirectory}
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 448 512"
       >

@@ -24,7 +24,6 @@ export function useGetDirectories() {
   const [directories, setDirectories] = useState(undefined);
   const token = useVerifyAccessToken();
   const config = createConfig(token);
-  
   const getDirectories = () => {
     axios
       .get(`${BASE_URL}/directories`, config)
@@ -42,14 +41,15 @@ export function useGetDirectories() {
 export function useCreateDirectory() {
   const token = useVerifyAccessToken();
   const config = createConfig(token);
-  
   return (body) => {
     body = { ...body, parent: parseInt(body.parent) };
     axios
       .post(`${BASE_URL}/directories`, body, config)
       .then((res) => location.reload())
       .catch((err) => {
-        alert("Erro ao criar diretório, confira os campos preenchidos. Nome da diretório é obrigatório e o id da diretório pai deve ser de uma criada por você.");
+        alert(
+          "Erro ao criar diretório, confira os campos preenchidos. Nome da diretório é obrigatório e o id da diretório pai deve ser de uma criada por você.",
+        );
         location.reload();
       });
   };
@@ -81,20 +81,24 @@ export function useEditDirectory() {
   return (id, body) => {
     body = { ...body, parent: parseInt(body.parent) };
 
-    if (body.name.length === 0 | body.parent.length === 0) {
+    if ((body.name.length === 0) | (body.parent.length === 0)) {
       axios
         .patch(`${BASE_URL}/directory/${id}`, body, config)
         .then((res) => location.reload())
         .catch((err) => {
-          alert("Erro ao editar diretório, confira os campos preenchidos. Nome da diretório é obrigatório e o id da diretório pai deve ser de uma criada por você.");
+          alert(
+            "Erro ao editar diretório, confira os campos preenchidos. Nome da diretório é obrigatório e o id da diretório pai deve ser de uma criada por você.",
+          );
           location.reload();
         });
-    } else if (body.name.length > 0 | body.parent.length > 0) {
+    } else if ((body.name.length > 0) | (body.parent.length > 0)) {
       axios
         .put(`${BASE_URL}/directory/${id}`, body, config)
         .then((res) => location.reload())
         .catch((err) => {
-          alert("Erro ao editar diretório, confira os campos preenchidos. Nome da diretório é obrigatório e o id da diretório pai deve ser de uma criada por você.");
+          alert(
+            "Erro ao editar diretório, confira os campos preenchidos. Nome da diretório é obrigatório e o id da diretório pai deve ser de uma criada por você.",
+          );
           location.reload();
         });
     }
@@ -105,7 +109,6 @@ export function useDeleteDirectory() {
   const token = useVerifyAccessToken();
   const config = createConfig(token);
   const navigate = useNavigate();
-  
   return (id) => {
     axios
       .delete(`${BASE_URL}/directory/${id}`, config)
@@ -114,10 +117,8 @@ export function useDeleteDirectory() {
         location.reload();
       })
       .catch((err) => {
-        console.log(err)
         alert("Erro ao deletar diretório");
         navigate("/home");
       });
   };
 }
-

@@ -2,7 +2,11 @@ import Header from "../../components/Header";
 import CreateDirectoryForm from "../../components/CreateDirectoryForm";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useEditDirectory, useGetDirectories, useGetDirectory } from "../../services/api";
+import {
+  useEditDirectory,
+  useGetDirectories,
+  useGetDirectory,
+} from "../../services/api";
 import { DirectoryInput } from "../../components/CreateDirectoryForm/style";
 import DirectoryItem from "../../components/DirectoryItem";
 import useForm from "../../hooks/useForm";
@@ -12,7 +16,7 @@ import {
   DirectoryEditForm,
   EditButton,
   Subdirectories,
-  SubdirectoriesContainer
+  SubdirectoriesContainer,
 } from "./style";
 
 function DirectoryPage() {
@@ -81,8 +85,7 @@ function DirectoryPage() {
             </Subdirectories>
           ) : (
             <p>Nenhuma subpasta encontrada.</p>
-          )
-          }
+          )}
         </SubdirectoriesContainer>
       </Content>
     </>
