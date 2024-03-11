@@ -1,4 +1,7 @@
 import { useState } from "react";
+
+// Custom hook responsavel por alterar o valor do input
+// podendo ser reaproveitado em varios lugares do codigo
 function useForm(initialForm) {
   const [form, setForm] = useState(initialForm);
 

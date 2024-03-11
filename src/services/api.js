@@ -9,6 +9,7 @@ function createConfig(token) {
   return { headers: { Authorization: `Bearer ${token}` } };
 }
 
+// Funcao para verificar autentificacao antes de cada request
 export const useVerifyAccessToken = () => {
   const verifyToken = useVerifyToken();
   const refresh = useRefreshToken();

@@ -33,6 +33,8 @@ function DirectoryPage() {
     }
   }, [id]);
 
+  // Funcao que filtra os diretorios que possuem o campo parent igual ao id
+  // do diretorio acessado na pagina
   const findSubdirectories = () => {
     return directories?.filter((d) => d.parent === parseInt(id));
   };
