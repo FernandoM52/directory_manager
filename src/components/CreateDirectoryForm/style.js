@@ -9,18 +9,19 @@ export const FormDiv = styled.div`
   height: 12%;
   position: fixed;
   top: 12%;
+  z-index: 1;
 `;
 
 export const Form = styled.form`
   display: flex;
   justify-content: center;
   gap: 20px;
-  width: 50%;
+  width: 100%;
   height: 2.5rem;
 `;
 
 export const DirectoryInput = styled.input`
-  width: 220px;
+  width: 15%;
   padding: 10px;
   border: 1px solid #d5d5d5;
   border-radius: 5px;
@@ -32,13 +33,25 @@ export const DirectoryInput = styled.input`
   &::placeholder {
     color: #dbdbdb;
   }
+
+  @media (max-width: 950px) {
+    width: 25%;
+    font-size: 12px;
+    line-height: 12px;
+  }
+
+  @media (max-width: 600px) {
+    width: 25%;
+    font-size: 12px;
+    line-height: 12px;
+  }
 `;
 
 export const StyledButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #fff;
+  background-color: #ffffff;
   color: #202020;
   gap: 0.75rem;
   border-radius: 6.25rem;
@@ -51,5 +64,20 @@ export const StyledButton = styled.button`
   cursor: pointer;
   &:hover {
     background-color: #e0e4ed;
+  }
+  @media (max-width: 950px) {
+    width: 30%;
+    font-size: 15px;
+    svg {
+      width: 15px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    width: 27%;
+    font-size: 10px;
+    svg {
+      width: 10px;
+    }
   }
 `;

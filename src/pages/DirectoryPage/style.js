@@ -7,6 +7,21 @@ export const Content = styled.div`
   min-height: 100vh;
   padding: 4%;
   padding-top: 17%;
+  @media (max-width: 1366px){
+    padding-top: 25%;
+  }
+  @media (max-width: 865px){
+    padding-top: 30%;
+  }
+  @media (max-width: 700px){
+    padding-top: 40%;
+  }
+  @media (max-width: 510px){
+    padding-top: 50%;
+  }
+  @media (max-width: 410px){
+    padding-top: 70%;
+  }
 `;
 
 export const CurrentDirectory = styled.div`
@@ -29,6 +44,17 @@ export const DirectoryEditForm = styled.form`
   align-items: center;
   gap: 10px;
   width: 100%;
+  input {
+    width: 220px;
+  }
+  input {
+    @media (max-width: 500px){
+      width: 150px;
+    }
+    @media (max-width: 350px){
+      width: 100px;
+    }
+  }
 `;
 
 export const EditButton = styled.button`  
@@ -45,6 +71,12 @@ export const EditButton = styled.button`
   cursor: pointer;
   &:hover {
     background-color: #e0e4ed;
+  }
+  @media (max-width: 500px){
+    width: 150px;
+  }
+  @media (max-width: 350px){
+    width: 100px;
   }
 `;
 

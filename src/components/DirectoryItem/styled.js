@@ -35,6 +35,15 @@ export const Directory = styled.li`
     left: 87%;
     top: 80%;
   }
+
+  @media (max-width: 500px){
+    width: 150px;
+    height: 150px;
+  }
+  @media (max-width: 350px){
+    width: 135px;
+    height: 180px;
+  }
 `;
 
 export const Info = styled.div`
