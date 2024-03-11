@@ -6,7 +6,7 @@ export const Content = styled.div`
   justify-content: center;
   background-color: #202020;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   overflow: hidden;
   span {
     color: #fff;

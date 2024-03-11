@@ -4,7 +4,6 @@ export const Directory = styled.li`
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   width: 220px;
   height: 150px;
   border-radius: 7px;
@@ -13,16 +12,10 @@ export const Directory = styled.li`
   font-size: 16px;
   line-height: 20px;
   text-overflow: ellipsis;
+  position: relative;
   cursor: pointer;
   &:hover {
     background-color: #dfe3e7;
-  }
-  
-  div {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 100%;
   }
 
   h2, p {
@@ -34,4 +27,24 @@ export const Directory = styled.li`
         font-weight: 400;
       }
     }
+
+  svg {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 87%;
+    top: 80%;
+  }
+`;
+
+export const Info = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  >div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
 `;
