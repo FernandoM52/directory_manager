@@ -13,6 +13,8 @@ Directory Manager é um sistema de gerenciamento de pastas no qual você terá p
 - Deletar pastas;
 - Editar pastas;
 
+![directory_manager](https://github.com/FernandoM52/directory_manager/assets/81760656/db2dc5c4-be40-47ac-872b-ea164280436e)
+
 <h3>Próximos passos:</h3>
 
 - Implementar testes;
